@@ -90,12 +90,11 @@ export function PondCalculatorApp({ settings }: PondCalculatorAppProps) {
         style={{ animation: 'float-in 0.4s ease both', minHeight: 0 }}
       >
         {activeTab === 'calculator' && (
-          <Calculator data={gameData} timeUnit={settings.timeUnit} onCalculate={addEntry} />
+          <Calculator data={gameData} onCalculate={addEntry} />
         )}
         {activeTab === 'history' && (
           <History
             history={history}
-            timeUnit={settings.timeUnit}
             onClear={clearHistory}
             onDelete={deleteEntry}
           />

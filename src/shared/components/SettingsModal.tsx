@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import type { AppSettings, TimeUnit } from '../types';
+import type { AppSettings } from '../types';
 
 // ─── Tab registry ─────────────────────────────────────────────────────────────
 // Each tab has an id, a label shown in the sidebar, and the panel content.
@@ -75,13 +75,6 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
 
 // ─── Built-in tab panels ──────────────────────────────────────────────────────
 
-const TIME_UNITS: { value: TimeUnit; label: string; suffix: string }[] = [
-  { value: 'second', label: 'Per Second', suffix: '/sec' },
-  { value: 'minute', label: 'Per Minute', suffix: '/min' },
-  { value: 'hour',   label: 'Per Hour',   suffix: '/hr'  },
-  { value: 'day',    label: 'Per Day',    suffix: '/day' },
-];
-
 function GeneralPanel({
   settings,
   onUpdate,
@@ -104,36 +97,24 @@ function GeneralPanel({
   );
 }
 
-function PondCalculatorPanel({
-  settings,
-  onUpdate,
-}: {
-  settings: AppSettings;
-  onUpdate: SettingsModalProps['onUpdate'];
-}) {
+function PondCalculatorPanel() {
   return (
     <div>
       <SectionHeading>Time Unit</SectionHeading>
-      <p className="text-xs text-slate-500 mb-3">Sets the time base for roe value output.</p>
-      <div className="grid grid-cols-2 gap-2">
-        {TIME_UNITS.map((u) => (
-          <button
-            key={u.value}
-            type="button"
-            onClick={() => onUpdate('timeUnit', u.value)}
-            className="px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-left"
-            style={{
-              background:
-                settings.timeUnit === u.value ? 'rgba(34,211,238,0.12)' : 'rgba(10,22,40,0.8)',
-              border: `1px solid ${
-                settings.timeUnit === u.value ? 'rgba(34,211,238,0.4)' : 'rgba(8,60,90,0.7)'
-              }`,
-              color: settings.timeUnit === u.value ? '#67e8f9' : '#64748b',
-            }}
-          >
-            <span className="block font-bold">{u.label}</span>
-            <span className="text-xs opacity-60">{u.suffix}</span>
-          </button>
+      <p className="text-xs text-slate-500 leading-relaxed">
+        Time unit is selected automatically based on the result magnitude:
+      </p>
+      <div className="mt-3 flex flex-col gap-1.5 text-xs">
+        {[
+          { range: '≤ 60',   unit: '/sec' },
+          { range: '≤ 60',   unit: '/min' },
+          { range: '≤ 24',   unit: '/hr'  },
+          { range: 'above',  unit: '/day' },
+        ].map(({ range, unit }) => (
+          <div key={unit} className="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#0a1628]/60 border border-[rgba(8,60,90,0.4)]">
+            <span className="text-cyan-400/70 font-mono w-12 shrink-0">{range}</span>
+            <span className="text-slate-400">{unit}</span>
+          </div>
         ))}
       </div>
     </div>
@@ -163,7 +144,7 @@ export function SettingsModal({
       id: 'pond-calculator',
       icon: '🐟',
       label: 'Pond Calc',
-      panel: <PondCalculatorPanel settings={settings} onUpdate={onUpdate} />,
+      panel: <PondCalculatorPanel />,
     },
   ];
 
@@ -253,20 +234,6 @@ export function SettingsModal({
             })}
           </nav>
 
-          {/* Close button at bottom of sidebar 
-          <div className="p-2 pt-0">
-            <button
-              onClick={onClose}
-              className="w-full py-2 rounded-xl text-xs font-bold transition-all duration-150"
-              style={{
-                background: 'rgba(34,211,238,0.08)',
-                border: '1px solid rgba(34,211,238,0.18)',
-                color: '#67e8f9',
-              }}
-            >
-              Done
-            </button>
-          </div>*/}
         </div>
 
         {/* ── Content area ── */}

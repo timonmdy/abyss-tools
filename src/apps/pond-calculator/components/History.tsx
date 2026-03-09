@@ -1,11 +1,9 @@
 import type { HistoryEntry } from '../types';
-import type { TimeUnit } from '../../../shared/types';
 import { Stars } from '../../../shared/components/Stars';
-import { formatValue, scaleToUnit, timeSuffix } from '../../../shared/utils/format';
+import { autoFormatValue } from '../../../shared/utils/format';
 
 interface HistoryProps {
   history: HistoryEntry[];
-  timeUnit: TimeUnit;
   onClear: () => void;
   onDelete: (id: number) => void;
 }
@@ -13,16 +11,13 @@ interface HistoryProps {
 function HistoryCard({
   entry,
   index,
-  timeUnit,
   onDelete,
 }: {
   entry: HistoryEntry;
   index: number;
-  timeUnit: TimeUnit;
   onDelete: () => void;
 }) {
-  const scaledResult = scaleToUnit(entry.result, timeUnit);
-  const suffix = timeSuffix(timeUnit);
+  const { display, suffix } = autoFormatValue(entry.result);
 
   return (
     <div
@@ -42,11 +37,8 @@ function HistoryCard({
               WebkitTextFillColor: 'transparent',
             }}
           >
-            {formatValue(scaledResult)}
-            <span
-              className="text-xs ml-1 font-normal"
-              style={{ WebkitTextFillColor: '#64748b', fontFamily: 'inherit' }}
-            >
+            {display}
+            <span className="text-xs ml-1 font-normal" style={{ WebkitTextFillColor: '#64748b', fontFamily: 'inherit' }}>
               {suffix}
             </span>
           </span>
@@ -73,7 +65,7 @@ function HistoryCard({
           Mutation <strong className="text-cyan-400">{entry.mutationName}</strong>{' '}
           ×{entry.mutationMulti}
         </span>
-        <span>Roe time <strong className="text-slate-300">{entry.timeToRoe}h</strong></span>
+        <span>TTR <strong className="text-slate-300">{entry.timeToRoe}s</strong></span>
       </div>
 
       <div className="mt-2 text-xs text-slate-700">
@@ -83,18 +75,12 @@ function HistoryCard({
   );
 }
 
-export function History({ history, timeUnit, onClear, onDelete }: HistoryProps) {
+export function History({ history, onClear, onDelete }: HistoryProps) {
   return (
     <div
       className="rounded-2xl border border-[rgba(8,60,90,0.4)] flex flex-col"
-      style={{
-        background: '#071020',
-        // Fills remaining space from parent flex column; cap so it never overflows viewport
-        maxHeight: 'calc(100vh - 280px)',
-        minHeight: '200px',
-      }}
+      style={{ background: '#071020', maxHeight: 'calc(100vh - 280px)', minHeight: '200px' }}
     >
-      {/* Sticky header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-[rgba(8,60,90,0.4)] shrink-0">
         <div className="text-xs font-bold tracking-widest uppercase text-cyan-400/60">
           Calculation History
@@ -115,7 +101,6 @@ export function History({ history, timeUnit, onClear, onDelete }: HistoryProps) 
         )}
       </div>
 
-      {/* Scrollable list */}
       <div className="overflow-y-auto flex-1">
         {history.length === 0 ? (
           <div className="text-center py-20 text-slate-600">
@@ -125,13 +110,7 @@ export function History({ history, timeUnit, onClear, onDelete }: HistoryProps) 
         ) : (
           <div className="flex flex-col gap-3 p-4">
             {history.map((entry, i) => (
-              <HistoryCard
-                key={entry.id}
-                entry={entry}
-                index={i}
-                timeUnit={timeUnit}
-                onDelete={() => onDelete(entry.id)}
-              />
+              <HistoryCard key={entry.id} entry={entry} index={i} onDelete={() => onDelete(entry.id)} />
             ))}
           </div>
         )}

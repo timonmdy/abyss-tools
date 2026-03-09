@@ -94,14 +94,15 @@ export function Dropdown({ label, icon, value, options, onChange }: DropdownProp
               <button
                 key={opt.value}
                 type="button"
-                onClick={() => { onChange(opt.value); setOpen(false); }}
+                disabled={opt.disabled}
+                onClick={() => { if (!opt.disabled) { onChange(opt.value); setOpen(false); } }}
                 dangerouslySetInnerHTML={{ __html: opt.label }}
                 onMouseEnter={(e) => {
-                  if (opt.value !== value)
+                  if (opt.value !== value && !opt.disabled)
                     (e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.04)';
                 }}
                 onMouseLeave={(e) => {
-                  if (opt.value !== value)
+                  if (opt.value !== value && !opt.disabled)
                     (e.currentTarget as HTMLButtonElement).style.background = 'transparent';
                 }}
                 style={{
@@ -109,13 +110,13 @@ export function Dropdown({ label, icon, value, options, onChange }: DropdownProp
                   textAlign: 'left',
                   padding: '10px 16px',
                   background: opt.value === value ? 'rgba(34,211,238,0.1)' : 'transparent',
-                  color: opt.value === value ? '#67e8f9' : '#94a3b8',
+                  color: opt.disabled ? '#374151' : opt.value === value ? '#67e8f9' : '#94a3b8',
                   border: 'none',
                   borderLeft: `2px solid ${opt.value === value ? 'rgba(34,211,238,0.5)' : 'transparent'}`,
                   display: 'block',
                   fontFamily: 'inherit',
                   fontSize: '0.825rem',
-                  cursor: 'pointer',
+                  cursor: opt.disabled ? 'not-allowed' : 'pointer',
                 }}
               />
             ))}

@@ -2,6 +2,7 @@ export interface Fish {
   fish_name: string;
   time_to_roe: number;
   base_value: number;
+  data_filled: boolean;
 }
 
 export interface Quality {
@@ -30,7 +31,7 @@ export interface HistoryEntry {
   qualityMulti: number;
   mutationName: string;
   mutationMulti: number;
-  result: number; // always stored as per-hour; display scaled by settings
+  result: number; // stored as per-second
 }
 
 export type TabId = 'calculator' | 'history' | 'data';

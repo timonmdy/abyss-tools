@@ -1,212 +1,44 @@
 [
-  {
-    "fish_name": "Ancient Shark",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Anglerfish",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Barracuda",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Bigmouthfish",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Blackfin Tuna",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Blobfish",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Blue Tang",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Bluefin Tuna",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Cavefish",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Clownfish",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Cod",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Discus",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Dragonfish",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Eyefish",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Grouper",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Hammer Shark",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Jaguar Shark",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Jellyfish",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "King Anglerfish",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Lionfish",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Mahi Mahi",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Mosasaurus",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Napoleon",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Narwhal",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Pacific Fanfish",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Pelican Eel",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Piranha",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Pompano",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Pufferfish",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Sacabambaspis",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Sailfish",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Salmon",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Scorpionfish",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Sea Turtle",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Seahorse",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Shark",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Sunfish",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Tambaqui",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Tang",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Toucan Fish",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Trout",
-    "time_to_roe": 120,
-    "base_value": 1
-  },
-  {
-    "fish_name": "Whale",
-    "time_to_roe": 120,
-    "base_value": 1
-  }
+  { "fish_name": "Ancient Shark",    "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Anglerfish",       "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Barracuda",        "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Bigmouthfish",     "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Blackfin Tuna",    "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Blobfish",         "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Blue Tang",        "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Bluefin Tuna",     "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Cavefish",         "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Clownfish",        "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Cod",              "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Discus",           "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Dragonfish",       "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Eyefish",          "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Grouper",          "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Hammer Shark",     "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Jaguar Shark",     "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Jellyfish",        "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "King Anglerfish",  "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Lionfish",         "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Mahi Mahi",        "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Mosasaurus",       "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Napoleon",         "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Narwhal",          "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Pacific Fanfish",  "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Pelican Eel",      "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Piranha",          "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Pompano",          "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Pufferfish",       "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Sacabambaspis",    "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Sailfish",         "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Salmon",           "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Scorpionfish",     "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Sea Turtle",       "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Seahorse",         "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Shark",            "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Sunfish",          "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Tambaqui",         "time_to_roe": 120, "base_value": 7.8, "data_filled": true  },
+  { "fish_name": "Tang",             "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Toucan Fish",      "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Trout",            "time_to_roe": 120, "base_value": 1,   "data_filled": false },
+  { "fish_name": "Whale",            "time_to_roe": 120, "base_value": 1,   "data_filled": false }
 ]
