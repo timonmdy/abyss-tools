@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Abyss Tools</title>
+  <script>
+    // Single-Page App redirect for GitHub Pages.
+    // When GH Pages 404s on a deep URL, redirect to the root index.html.
+    // The app uses in-memory routing so the root always loads correctly.
+    var base = window.location.pathname.split('/')[1];
+    var root = window.location.origin + (base ? '/' + base + '/' : '/');
+    window.location.replace(root);
+  </script>
+</head>
+<body></body>
+</html>
