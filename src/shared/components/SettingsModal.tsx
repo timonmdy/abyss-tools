@@ -97,25 +97,54 @@ function GeneralPanel({
   );
 }
 
-function PondCalculatorPanel() {
+const TIME_UNIT_OPTIONS: { value: AppSettings['timeUnit']; label: string; sub: string }[] = [
+  { value: 'second', label: 'Per Second', sub: '/sec' },
+  { value: 'minute', label: 'Per Minute', sub: '/min' },
+  { value: 'hour',   label: 'Per Hour',   sub: '/hr'  },
+  { value: 'day',    label: 'Per Day',    sub: '/day' },
+];
+
+function PondCalculatorPanel({
+  settings,
+  onUpdate,
+}: {
+  settings: AppSettings;
+  onUpdate: SettingsModalProps['onUpdate'];
+}) {
   return (
     <div>
-      <SectionHeading>Time Unit</SectionHeading>
-      <p className="text-xs text-slate-500 leading-relaxed">
-        Time unit is selected automatically based on the result magnitude:
+      <SectionHeading>Result Time Unit</SectionHeading>
+      <p className="text-xs text-slate-500 mb-3 leading-relaxed">
+        Choose the time unit for displaying calculated roe values.
       </p>
-      <div className="mt-3 flex flex-col gap-1.5 text-xs">
-        {[
-          { range: '≤ 60',   unit: '/sec' },
-          { range: '≤ 60',   unit: '/min' },
-          { range: '≤ 24',   unit: '/hr'  },
-          { range: 'above',  unit: '/day' },
-        ].map(({ range, unit }) => (
-          <div key={unit} className="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#0a1628]/60 border border-[rgba(8,60,90,0.4)]">
-            <span className="text-cyan-400/70 font-mono w-12 shrink-0">{range}</span>
-            <span className="text-slate-400">{unit}</span>
-          </div>
-        ))}
+      <div className="flex flex-col gap-1.5">
+        {TIME_UNIT_OPTIONS.map(({ value, label, sub }) => {
+          const active = settings.timeUnit === value;
+          return (
+            <button
+              key={value}
+              type="button"
+              onClick={() => onUpdate('timeUnit', value)}
+              className="flex items-center justify-between px-4 py-2.5 rounded-xl text-sm text-left transition-all duration-150 w-full"
+              style={{
+                background: active ? 'rgba(34,211,238,0.1)' : 'rgba(10,22,40,0.6)',
+                border: `1px solid ${active ? 'rgba(34,211,238,0.4)' : 'rgba(8,60,90,0.5)'}`,
+                color: active ? '#67e8f9' : '#64748b',
+              }}
+            >
+              <span className="font-semibold">{label}</span>
+              <span
+                className="font-mono text-xs px-2 py-0.5 rounded"
+                style={{
+                  background: active ? 'rgba(34,211,238,0.15)' : 'rgba(8,60,90,0.4)',
+                  color: active ? '#22d3ee' : '#334155',
+                }}
+              >
+                {sub}
+              </span>
+            </button>
+          );
+        })}
       </div>
     </div>
   );
@@ -144,7 +173,7 @@ export function SettingsModal({
       id: 'pond-calculator',
       icon: '🐟',
       label: 'Pond Calc',
-      panel: <PondCalculatorPanel />,
+      panel: <PondCalculatorPanel settings={settings} onUpdate={onUpdate} />,
     },
   ];
 
