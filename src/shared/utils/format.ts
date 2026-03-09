@@ -55,3 +55,19 @@ export function autoFormatValue(perSecondValue: number): { display: string; suff
   if (perHour >= 1) return { display: formatValue(perHour), suffix: '/hr'  };
   return               { display: formatValue(perDay),  suffix: '/day' };
 }
+
+// ─── Duration formatting (for displaying time_to_roe in human-readable form) ──
+
+/**
+ * Formats a duration in seconds into the most readable unit.
+ *   < 60s   → "Xs"
+ *   < 3600s → "Xm"
+ *   < 86400s→ "Xh"
+ *   else    → "Xd"
+ */
+export function formatDuration(seconds: number): string {
+  if (seconds < 60)    return `${seconds}s`;
+  if (seconds < 3600)  return `${(seconds / 60).toFixed(0)}m`;
+  if (seconds < 86400) return `${(seconds / 3600).toFixed(1)}h`;
+  return `${(seconds / 86400).toFixed(1)}d`;
+}

@@ -1,4 +1,5 @@
 import type { GameData } from '../types';
+import { formatDuration } from '../../../shared/utils/format';
 
 interface DataViewProps {
   data: GameData;
@@ -87,7 +88,7 @@ export function DataView({ data }: DataViewProps) {
                   </td>
                   <td className="py-2 pr-4">
                     {f.data_filled ? (
-                      <span className="text-cyan-400">{f.time_to_roe}s</span>
+                      <span className="text-cyan-400">{formatDuration(f.time_to_roe)}</span>
                     ) : (
                       <span className="text-slate-700">—</span>
                     )}
